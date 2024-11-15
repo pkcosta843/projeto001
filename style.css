@@ -33,6 +33,7 @@ body {
 
   /*background: color image  repeat position/size */
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh; 
 }
 
 body * {
@@ -42,6 +43,7 @@ body * {
 
 #container {
   width: 360px;
+  max-width: 588px;
   /*  border: 1px solid red;  Caso haja duvida coloca esse comando para ter noção */
   margin: 56px auto 0px; /*Se utilizar a margin como: margin: 56px auto (ira funcionar como 56px em cima, auto nos dois lados e o 0px funcionara em baixo) 
   Caso ele utilizar apenas 56px e auto (Ele ira utilizar o 56px em cima e em baixo e o auto nos dois lados)
@@ -174,4 +176,15 @@ footer {
   padding: 24px 0;
   text-align: center; /* texto alinhar no centro */
   font-size: 14px;
+}
+
+
+/* media queries */
+@media (min-width: 700px) {
+  :root {
+    --br-url: url(./assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop/light.jpg);
+  }
 }
