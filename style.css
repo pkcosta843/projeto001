@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*Medida do tamanho da caixa para ser medica atraves da borda*/
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgb(255, 255, 255, 0.5);
+  --surface-color: rgb(255, 255, 255, 0.05);
+  --surface-color-hover: rgb(0, 0, 0, 0.02);
+  --highlight-color: rgb(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+} /*Meu conteudo de toda lugar da pagina que eu utilizar a vareavel ficara branco*/
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgb(0, 0, 0, 0.5);
+  --surface-color: rgb(0, 0, 0, 0.05);
+  --surface-color-hover: rgb(0, 0, 0, 0.02);
+  --highlight-color: rgb(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover; /*cover = cobre espaço invisivel*/
+
+  /*background: color image  repeat position/size */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /*  border: 1px solid red;  Caso haja duvida coloca esse comando para ter noção */
+  margin: 56px auto 0px; /*Se utilizar a margin como: margin: 56px auto (ira funcionar como 56px em cima, auto nos dois lados e o 0px funcionara em baixo) 
+  Caso ele utilizar apenas 56px e auto (Ele ira utilizar o 56px em cima e em baixo e o auto nos dois lados)
+  |56px|  |auto|    |0px|    |auto|        (Utiliza igual em baixo)
+  |Top|   |right|  |bottom|  |left|
+  Top = 12h  /  right = 3h  /  bottom = 6h  /  left = 9*/
+  padding: 0 24px;
+}
+/*Elemento inline não consegue aplicar a margem auto
+Para aplicar a margin auto, precisa aplicar o display: block; ou inline-block*/
+
+#profile {
+  text-align: center;
+  padding: 24px; /*Ele adiciona o preenchimento para todos os lados da caixa*/
+}
+/* Se tivesse o discplay:block; o text-align:center; não iria aceitar*/
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500; /*Peso é o bold (negrito)*/
+  line-height: 24px; /*Altura da linha*/
+  margin-top: 8px; /*Espaço da foto é do @*/
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button { 
+
+      /*alinhamento ao centro */
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+    /* alinhamento */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  /* surface-color-dark-mode */
+  background: var(--surface-color);
+  /* stroke-color-dark-mode */
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links */
+ul {
+  list-style: none; /*none significa nenhum         list-style = estilo da lista*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--strock-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+/* pseudo-selector aplica as coisas quando passar o mouse em cima*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/* social links */
+#social-links {
+  display: flex;
+  justify-content: center; /*Alinhar ao meio*/
+
+  padding: 24px 0;
+
+  font-size: 40px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center; /* texto alinhar no centro */
+  font-size: 14px;
+}
